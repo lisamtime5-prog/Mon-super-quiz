@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Pratique</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <audio id="success-sound" src="https://cdn.jsdelivr.net/gh/google/flatbuffers/samples/sounds/success.mp3"></audio>
+    <audio id="fail-sound" src="https://cdn.jsdelivr.net/gh/google/flatbuffers/samples/sounds/fail.mp3"></audio>
+
+    <div class="container">
+        
+        <section id="initial-screen">
+            <h1>Choisissez une Matière</h1>
+            <div id="matiere-options">
+                </div>
+        </section>
+
+        <section id="mode-selection" class="hidden">
+            <h1 id="mode-title"></h1>
+            
+            <div id="cibled-mode-options">
+                </div>
+
+            <div class="separator">OU</div>
+
+            <div class="mode-buttons-group">
+                <button class="matiere-btn mixte-mode" onclick="quizManager.startPracticeSession(quizManager.currentMatiereKey, 'mixte')">
+                    🧠 Mode Mixte (Toutes les questions)
+                </button>
+                <button id="flashcard-btn" class="matiere-btn flashcard-mode" onclick="quizManager.startFlashcardSession(quizManager.currentMatiereKey)">
+                    📝 Mode Révision (Flashcards)
+                </button>
+            </div>
+            
+            <button class="back-btn" onclick="showInitialScreen()">← Retour au menu principal</button>
+        </section>
+
+        <section id="quiz-section" class="hidden">
+            <h2 id="quiz-title">Titre du Quiz</h2>
+            
+            <div class="stats-bar">
+                <span id="quiz-timer">⏱️ 00:00</span>
+                <span id="quiz-score">Score: 0/0</span>
+                <span id="quiz-streak">🔥 Série: 0</span>
+            </div>
+
+            <div id="question-card">
+                <p
